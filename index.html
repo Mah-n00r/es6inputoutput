@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit Converters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: rgb(89, 3, 100);
+           
+            background-image: url(css.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        
+        .glass-container {
+            background: rgba(255, 255, 255, 0.23);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5.6px);
+            -webkit-backdrop-filter: blur(5.6px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px; 
+            margin-bottom: 20px;
+            max-width: 400px;
+        }
+        .glass-container input[type="submit"] {
+            background-color: #8f0bb8;
+            color: white;
+            border: none;
+            border-radius: 2px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+       
+        .glass-container input[type="submit"]:hover {
+            background-color: #4d0353;
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-container">
+        <h1>Unit Converters</h1>
+       
+        <div class="glass-container">
+            <h2>Temperature Converter</h2>
+            <form onsubmit="convertTemperature(); return false;">
+                <label for="celsius">Enter temperature in Celsius:</label>
+                <input type="number" id="celsius" name="celsius" placeholder="Celsius" step="0.01">
+                <input type="submit" value="Convert">
+            </form>
+            <p id="tempResult"></p>
+        </div>
+
+       
+        <div class="glass-container">
+            <h2>Marla to Square Feet Converter</h2>
+            <form onsubmit="convertMarla(); return false;">
+                <label for="marla">Enter area in Marla:</label>
+                <input type="number" id="marla" name="marla" placeholder="Marla" step="0.01">
+                <input type="submit" value="Convert">
+            </form>
+            <p id="marlaResult"></p>
+        </div>
+
+        
+        <div class="glass-container">
+            <h2>Yards to Square Feet Converter</h2>
+            <form onsubmit="convertYards(); return false;">
+                <label for="yards">Enter area in Yards:</label>
+                <input type="number" id="yards" name="yards" placeholder="Yards" step="0.01">
+                <input type="submit" value="Convert">
+            </form>
+            <p id="yardsResult"></p>
+        </div>
+    </div>
+
+    <script>
+        
+        function convertTemperature() {
+            const celsius = parseFloat(document.getElementById('celsius').value);
+            const fahrenheit = (celsius * 9/5) + 32;
+            document.getElementById('tempResult').innerHTML = `Temperature in Fahrenheit: ${fahrenheit.toFixed(2)} °F`;
+            return false; 
+        }
+       
+        function convertMarla() {
+            const marla = parseFloat(document.getElementById('marla').value);
+            const squareFeet = marla * 272.25;
+            document.getElementById('marlaResult').innerHTML = `Area in Square Feet: ${squareFeet.toFixed(2)} sq. ft`;
+            return false; 
+        }
+
+        
+        function convertYards() {
+            const yards = parseFloat(document.getElementById('yards').value);
+            const squareFeet = yards * 9;
+            document.getElementById('yardsResult').innerHTML = `Area in Square Feet: ${squareFeet.toFixed(2)} sq. ft`;
+            return false;
+        }
+    </script>
+</body>
+</html>
